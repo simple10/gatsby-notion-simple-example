@@ -5,8 +5,16 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's hello-world starter
+  Gatsby Hello World Example with Notion Backend
 </h1>
+
+
+Based on 
+- https://github.com/gatsbyjs/gatsby-starter-hello-world
+- https://conradlin.com/blog/posts/host-gatsbyjs-blog-with-notion-cms-and-netlify-for-free
+
+---
+
 
 Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
