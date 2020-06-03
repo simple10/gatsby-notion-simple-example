@@ -8,10 +8,16 @@
   Gatsby Hello World Example with Notion Backend
 </h1>
 
+Pulls data from [this example notion page](https://www.notion.so/s10examples/Gatsby-Notion-Example-2d29d758ac0e4f0e9bafb7e3dafbc4f6)
 
 Based on 
 - https://github.com/gatsbyjs/gatsby-starter-hello-world
 - https://conradlin.com/blog/posts/host-gatsbyjs-blog-with-notion-cms-and-netlify-for-free
+
+---
+
+IMPORTANT:
+- Use node 12.14 (not later) to avoid ES module errors; this is a known gatsby/node issue as of June 3, 2020
 
 ---
 

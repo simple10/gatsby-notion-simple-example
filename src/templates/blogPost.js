@@ -4,7 +4,7 @@ import { parseImageUrl } from 'notabase/src/utils'
 
 
 export default ({ data }) => {
-  const { posts: { title, tags, publish_date, html, url, slug, desc, color, cover_image } } = data
+  const { posts: { title, tags, publish_date, html, url, blurb, cover_image } } = data
 
   return (
     <div id = "main">
@@ -23,8 +23,7 @@ export const query = graphql`
       tags
       publish_date
       url
-      desc
-      color
+      blurb
       cover_image
     }
   }

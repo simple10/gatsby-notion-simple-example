@@ -16,17 +16,14 @@ const Blog = (props) => {
 export default Blog
 export const query = graphql`
   query {
-    allPosts(filter: {status: {eq: "published"}, content_type: {eq: "article"}}  sort: { fields: [publish_date], order: DESC }) {
+    allPosts(filter: {status: {eq: "published"}}  sort: { fields: [publish_date], order: DESC }) {
       nodes {
         title
         tags
-        desc
-        content_type
+        blurb
         status
         url
-        read_time
         cover_image
-        slug
         publish_date(fromNow: false)
       }
     }
