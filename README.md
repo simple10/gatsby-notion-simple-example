@@ -8,6 +8,8 @@
   Gatsby Hello World Example with Notion Backend
 </h1>
 
+[Demo on Netlify](https://gatsby-notion-simple-example.netlify.app/)
+
 Pulls data from [this example notion page](https://www.notion.so/s10examples/Gatsby-Notion-Example-2d29d758ac0e4f0e9bafb7e3dafbc4f6)
 
 Based on 
