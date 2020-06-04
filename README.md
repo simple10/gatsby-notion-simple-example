@@ -20,6 +20,7 @@ Based on
 
 IMPORTANT:
 - Use node 12.14 (not later) to avoid ES module errors; this is a known gatsby/node issue as of June 3, 2020
+- Notion page titles with international characters or special code sequences will break the rewrite rule engine; this is due to Notion returning the title as a nested array when the special sequences are present; this breaks GraphQL and only the first part of the nested array will be returned a 'title' in GraphQL queries; a possible work around would be to process the _raw data and handle special cases with the nested arrays
 
 ---
 
