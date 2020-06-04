@@ -7,7 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const addRedirect = (title, slug, toPath) => {
     // Replace non alpha numeric chars and double dashes with single dashes
     const cleanTitle = title.replace(/[^a-z0-9-_]+/ig, '-').replace('--', '-')
-    const cleanTo = `/${toPath}`.replace(/^\/\/, '/')
+    const cleanTo = `/${toPath}`.replace(/^\/\//, '/')
     createRedirect({ fromPath: `/${cleanTitle}-${slug}`, toPath: cleanTo, isPermanent: true })
     createRedirect({ fromPath: `/${slug}`, toPath: cleanTo, isPermanent: true })
   }
