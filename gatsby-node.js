@@ -2,11 +2,19 @@
 const path = require(`path`)
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  const addRedirect = (title, slug, toPath) => {
+    // Replace non alpha numeric chars and double dashes with single dashes
+    const cleanTitle = title.replace(/[^a-z0-9-_]+/ig, '-').replace('--', '-')
+    createRedirect({ fromPath: `${title}-${slug}`, toPath: toPath, isPermanent: true })
+    createRedirect({ fromPath: slug, toPath: toPath, isPermanent: true })
+  }
 
   const pages = await graphql(`query {
     allPages(filter: {status: {eq: "published"}}) {
         nodes {
+          title
           slug
           url
         }
@@ -16,9 +24,11 @@ exports.createPages = async ({ graphql, actions }) => {
     if (result.errors) {
       Promise.reject(result.errors);
     }
-    result.data.allPages.nodes.forEach(({ slug, url }) => {
+    result.data.allPages.nodes.forEach(({ title, slug, url }) => {
+      const pagePath = url;
+      addRedirect(title, slug, pagePath);
       createPage({
-          path: `${url}`,
+          path: pagePath,
           component: path.resolve(`./src/templates/page.js`),
           context: {
               // Data passed to context is available
@@ -32,6 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPosts = await graphql(`query {
     allPosts(filter: {status: {eq: "published"}}) {
         nodes {
+          title
           slug
           url
         }
@@ -41,9 +52,11 @@ exports.createPages = async ({ graphql, actions }) => {
     if (result.errors) {
       Promise.reject(result.errors);
     }
-    result.data.allPosts.nodes.forEach(({ slug, url }) => {
+    result.data.allPosts.nodes.forEach(({ title, slug, url }) => {
+      const postPath = `blog/${url}`
+      addRedirect(title, slug, postPath);
       createPage({
-          path: `blog/${url}`,
+          path: postPath,
           component: path.resolve(`./src/templates/blogPost.js`),
           context: {
               // Data passed to context is available
