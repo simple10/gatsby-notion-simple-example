@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { parseImageUrl } from 'notabase/src/utils'
 
 
 export default ({ data }) => {
